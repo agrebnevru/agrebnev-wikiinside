@@ -1,0 +1,12 @@
+<?php
+
+$MESS['AGREBNEV_WI_TAB_NAME'] = 'Настройки';
+$MESS['AGREBNEV_WI_TAB_TITLE'] = 'Настройки';
+
+$MESS['AGREBNEV_WI_OPTIONS_BLOCK_NAME_BASE'] = 'Базовые данные';
+$MESS['AGREBNEV_WI_OPTIONS_IBLOCK_ID'] = 'ID инфоблока с базой';
+$MESS['AGREBNEV_WI_OPTIONS_IBLOCK_PROP_ID__LOCATION_PATHNAME'] = 'ID свойства инфоблока LOCATION_PATHNAME';
+$MESS['AGREBNEV_WI_OPTIONS_IBLOCK_PROP_ID__LOCATION_SEARCH'] = 'ID свойства инфоблока LOCATION_SEARCH';
+
+$MESS['AGREBNEV_WI_OPTIONS_BLOCK_NAME_COMPONENT'] = 'Настройка вывода wiki-информации';
+$MESS['AGREBNEV_WI_OPTIONS_COMPONENT_CACHE_TIME'] = 'Время кеширования данных (сек)';

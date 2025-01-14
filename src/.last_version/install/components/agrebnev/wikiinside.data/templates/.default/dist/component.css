@@ -1,0 +1,156 @@
+.b-agrebnev-wikiinside {
+  height: calc(100% + 19px); }
+  .b-agrebnev-wikiinside__header {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .b-agrebnev-wikiinside__header__title {
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      color: #25282c;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      font-size: 28px;
+      font-weight: bold;
+      height: 50px;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding: 0 15px;
+      text-shadow: 0 1px white; }
+      .b-agrebnev-wikiinside__header__title > span {
+        color: rgba(47, 198, 246, 0.95); }
+  .b-agrebnev-wikiinside__container {
+    height: calc(100% - 50px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .b-agrebnev-wikiinside__panel {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 230px;
+            flex: 1 0 230px;
+    max-width: 230px;
+    height: calc(100%); }
+    .b-agrebnev-wikiinside__panel > ul {
+      margin: 0; }
+    .b-agrebnev-wikiinside__panel ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      list-style-type: none;
+      padding-left: 0; }
+      .b-agrebnev-wikiinside__panel ul ul > li > a {
+        padding-left: 20px; }
+    .b-agrebnev-wikiinside__panel li {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      list-style-type: none; }
+    .b-agrebnev-wikiinside__panel__link {
+      color: #535c69;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 11px 20px;
+      text-decoration: none; }
+      .b-agrebnev-wikiinside__panel__link:hover {
+        background-color: #f2f5f6;
+        text-decoration: none; }
+      .b-agrebnev-wikiinside__panel__link.is-active {
+        background-color: #ccd7db; }
+      .b-agrebnev-wikiinside__panel__link.b-agrebnev-wikiinside__link-p--lvl-1 {
+        padding-left: 20px; }
+      .b-agrebnev-wikiinside__panel__link.b-agrebnev-wikiinside__link-p--lvl-2 {
+        padding-left: 30px; }
+      .b-agrebnev-wikiinside__panel__link.b-agrebnev-wikiinside__link-p--lvl-3 {
+        padding-left: 40px; }
+      .b-agrebnev-wikiinside__panel__link.b-agrebnev-wikiinside__link-p--lvl-4 {
+        padding-left: 50px; }
+      .b-agrebnev-wikiinside__panel__link.b-agrebnev-wikiinside__link-p--lvl-5 {
+        padding-left: 60px; }
+  .b-agrebnev-wikiinside__content {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+    max-width: calc(100% - 230px);
+    height: calc(100% - 19px); }
+    .b-agrebnev-wikiinside__content__body {
+      background-color: white;
+      height: calc(100%);
+      min-height: 500px;
+      padding: 10px 15px; }
+    .b-agrebnev-wikiinside__content__title {
+      font-size: 22px;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+    .b-agrebnev-wikiinside__content__elements-wrap {
+      padding-top: 15px; }
+    .b-agrebnev-wikiinside__content__link.is-active {
+      pointer-events: none;
+      color: black;
+      text-decoration: none; }
+    .b-agrebnev-wikiinside__content__description {
+      padding-top: 25px; }
+  .b-agrebnev-wikiinside__footer {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 40px;
+    padding: 0 15px; }
+    .b-agrebnev-wikiinside__footer__copy {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .b-agrebnev-wikiinside__footer__copy:last-of-type {
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: end; }
+    .b-agrebnev-wikiinside__footer a {
+      color: #45484f;
+      text-decoration: none; }
+      .b-agrebnev-wikiinside__footer a:hover {
+        text-decoration: underline; }
+
+.agrebnev-wikiinside--iframe .b-agrebnev-wikiinside__header {
+  background-color: rgba(238, 242, 244, 0.95); }
+
+.agrebnev-wikiinside--iframe .b-agrebnev-wikiinside__panel {
+  background-color: rgba(238, 242, 244, 0.95);
+  border-top: 1px solid white; }
+
+.agrebnev-wikiinside--iframe .adm-main-wrap {
+  min-width: 800px; }
+
+.agrebnev-wikiinside--iframe .adm-workarea-wrap {
+  padding-bottom: 0; }
+
+.agrebnev-wikiinside--iframe .adm-workarea {
+  height: 100%;
+  padding: 0; }
+
+.agrebnev-wikiinside--iframe .adm-title {
+  display: none; }
+
+.agrebnev-wikiinside--iframe .adm-info-message-wrap {
+  display: none; }
