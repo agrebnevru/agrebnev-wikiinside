@@ -1,7 +1,7 @@
 <?php
 
 $MESS['AGREBNEV_WI_INSTALL_NAME'] = 'Wiki внутри админки сайта';
-$MESS['AGREBNEV_WI_INSTALL_DESCRIPTION'] = 'Модуль помогает создать wiki внутри административного интерфейса 1С-Битрикс. Например для ведения wiki по проекту.';
+$MESS['AGREBNEV_WI_INSTALL_DESCRIPTION'] = 'Модуль помогает создать wiki внутри административного интерфейса 1С-Битрикс.';
 $MESS['AGREBNEV_WI_INSTALL_COPMPANY_NAME'] = 'Алексей Гребнев';
 $MESS['AGREBNEV_WI_INSTALL_SUCCESS_INSTALL'] = 'Установка успешно завершена';
 
@@ -11,11 +11,27 @@ $MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK_TYPE__ELEMENT_NAME'] = 'Статья';
 
 // iblock
 $MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__NAME'] = 'WikiInside Data';
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__DESCRIPTION'] = 'Модуль WikiInside предназначен для создания документацию по проекту внутри административного интерфейса 1С-Битрикс.';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__DESCRIPTION'] = 'Модуль помогает создать wiki внутри административного интерфейса 1С-Битрикс.<br>
+Для чего можно использовать:
+<ul>
+<li>Ведение wiki по проекту.</li>
+<li>Инструкции и подсказки для администраторов и менеджеров проекта.</li>
+<li>Документация по порталу для разработчиков.</li>
+</ul>
+<br>
+<br>
+В разделе "О модуле WikiInside" вы можете ознакомиться с тем как работать со статьями.<br>
+Остальные категории являются не более чем демо-данными модуля.<br>';
+
+// iblock properties
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_PATHNAME'] = 'URL страницы';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_PATHNAME__HINT'] = '';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_SEARCH'] = 'Параметры страницы';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_SEARCH__HINT'] = 'В значении свойства указывайте имя get-пареметра, а в описании указывайте значение get-параметра.';
 
 // sections
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__WI_SECTION__NAME'] = 'Модуль WikiInside';
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__WI_SECTION__DESCRIPTION'] = 'Тут вы найдете пример статей которые крепятся к конкретной странице админки.';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__WI_SECTION__NAME'] = 'О модуле WikiInside';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__WI_SECTION__DESCRIPTION'] = 'В данном разделе вы найдете информацию о том как создавать статьи, как привязывать их к конкретным страницам административного интерфейса и другую полезную информацию.<br><br>Как открывать панель вы уже поняли, поэтому идем дальше.';
 
 $MESS['AGREBNEV_WI_INSTALL_DEMODATA__MAIN_SECTION__NAME'] = 'Основы администрирования';
 $MESS['AGREBNEV_WI_INSTALL_DEMODATA__MAIN_SECTION__DESCRIPTION'] = '<p>
@@ -43,11 +59,52 @@ $MESS['AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK_SECTION__DESCRIPTION'] = 'Один из са
 В этой главе Вы узнаете, как создать новый инфоблок и "подогнать его под себя":';
 
 // elements
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_1__NAME'] = 'Эта wiki-статья #1 привязана к настройкам модуля WikiInside';
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_1__DETAIL_TEXT'] = 'Описание статьи для страницы настроек модуля WikiInside.';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_ADD__NAME'] = 'Добавление статьи';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_ADD__DETAIL_TEXT'] = 'Существует 2 способа добавить статью:
+<ul>
+<li>Через инфоблок</li>
+<li>Через панель WikiInside</li>
+</ul>
+<br>
+<h3>Через инфоблок</h3>
+При добавлении новой статьи из инфоблока вы сами прописываете где статья должна отображаться.<br>
+Т.е. такие настройки как раздел, к которому нужно привязать статью, URL страницы и параметры страницы.<br>
+<h3>Через панель WikiInside</h3>
+Если же вы нажимаете кнопку "Добавить" из панели, то все параметры заполняются сами, далее вы их правите по своему смотрению.<br><br>
+<br>
+<h3>Зачем в статьи поля "URL страницы" и "Параметры страницы"</h3>
+Эти поля нужны для того чтобы привязать статью к конкретной странице административного интерфейса 1С-Битрикс.<br>
+Например настройки модуля WikiInside открываются по url - "/bitrix/admin/settings.php?lang=ru&mid=agrebnev.wikiinside"<br>
+Таким образом чтобы создать статью, которая будет отображаться первой по открытии WikiInside панели со страницы настроек модуля, нужно:
+<ul>
+<li>В URL страницы прописать "/bitrix/admin/settings.php"</li>
+<li>А в Параметры страницы указать 2 парамета: lang со значеним (писать в описание свойства) ru и mid со значением равным agrebnev.wikiinside</li>
+</ul>
+В целом нужно отменить что первый параметр (lang) писать необходимости нет.
+<br>
+<br>
+<h3>Какие поля в статье заполнять?</h3>
+Конечно же вам нужно заполнить следующие поля элемента инфоблока:
+<ul>
+<li>Название - обязательное поле, указываете наименование статьи.</li>
+<li>URL страницы - не обязательное поле, тут вы указываете к параетры страницы, по которым нужно сделать привязку статьи.</li>
+<li>Тело статьи вы пишите на вкладе "Подробно" элемента инфоблока в поле "Детальное описание". Тут вам доступен весь широкий функционал визуального редактора 1С-Битрикс.</li>
+<li>На вкладке "Категория" вы указываете категорию, в которой нужно отобразить статью. Тут нужно отметить что функционал админки 1С-Битрикс поддерживает привязку к нескольким категориям, но статьи модуля WikiInside будут отображажаться только в одной категории.</li>
+</ul>
+<span style="color:red;">Важно!</span> Если вы допустили ошибку при вестке статьи, то модуль не исправит ее. Будте осторожны используя сложную верстку при написании статей, т.к. ошибки вашей верстки могут повлиять на работоспособность панели WikiInside.
+';
 
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_2__NAME'] = 'Эта wiki-статья #2 привязана так же к настройкам модуля WikiInside';
-$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_2__DETAIL_TEXT'] = 'Но эта статья не открывается по открытие wiki со страницы настроек модуля, т.к. есть вторая статья с такими же настройками.';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_EDIT__NAME'] = 'Редактирование статьи';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_EDIT__DETAIL_TEXT'] = 'Аналогично созданию статей вы можете открыть существующую статью для редактирования напрямую из инфоблока или нажать на кнопку "Редактировать" которая появляется над статьей в панели WikiInside.<br>
+Если нажимать кнопку "Редактировать" над статьей, то откроется для редактирования именно та статья которую вы просматриваете.';
+
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_SETTINGS__NAME'] = 'Настройки модуля';
+$MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_SETTINGS__DETAIL_TEXT'] = 'Эта wiki-статья привязана к настройкам модуля WikiInside - подробнее как она привязана вы можете увидеть в реадактировании данной статьи.<br>
+<br>
+Из настроек тут только время кеширования данных при выборке из инфоблока со статьями.<br>
+<br>
+Нужно отметить что при написании статей я рекомендую вам выставить время кеширования в 0. А уже после того как все статьи будут писаны выбрать удобное для вас время кеширования.<br>
+Если оставить время кеширования статей по умолчанию, то при изменении статей вы не будете видеть изменения в панели WikiInside, т.к. в нее вам будут выдаваться кешированные данные.';
 
 $MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_3__NAME'] = 'Подробнее о главном модуле';
 $MESS['AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_3__DETAIL_TEXT'] = '<p>

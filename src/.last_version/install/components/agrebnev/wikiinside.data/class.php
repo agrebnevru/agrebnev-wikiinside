@@ -42,6 +42,37 @@ class AgrebnevWikiInsideDataComponent extends \CBitrixComponent
         $arParams['IBLOCK_ID'] = $this->iblockId;
         $this->arResult['ORIGINAL_PARAMS'] = $arParams;
 
+        // echo "\$arParams =<br><textarea>";
+        // print_r($arParams);
+        // echo "</textarea><br>";
+
+        $params = [
+            'IBLOCK_ID=' . $arParams['IBLOCK_ID'],
+            'type=agrebnev_wikiinside',
+            'lang=' . LANGUAGE_ID,
+            'find_section_section=0',
+            'SECTION_ID=0',
+            'apply_filter=Y',
+        ];
+        $this->arResult['BASE_URL'] = '/bitrix/admin/iblock_list_admin.php?' . implode('&', $params);
+
+        $params = [
+            'IBLOCK_ID=' . $arParams['IBLOCK_ID'],
+            'type=agrebnev_wikiinside',
+            'lang=' . LANGUAGE_ID,
+            'agrebnev_wi_action=addnew',
+            'agrebnev_wi_params[location][pathname]=' . (string)urlencode($arParams['LOCATION_PATHNAME']),
+            'agrebnev_wi_params[location][search]=' . (string)urlencode($arParams['LOCATION_SEARCH']),
+        ];
+        $this->arResult['ADD_URL'] = '/bitrix/admin/iblock_element_edit.php?' . implode('&', $params);
+
+        $params = [
+            'IBLOCK_ID=' . $arParams['IBLOCK_ID'],
+            'type=agrebnev_wikiinside',
+            'lang=' . LANGUAGE_ID,
+            'ID=',
+        ];
+
         return $arParams;
     }
 
@@ -78,6 +109,8 @@ class AgrebnevWikiInsideDataComponent extends \CBitrixComponent
             'limit' => 1,
         ]);
         if ($row = $iterator->fetch()) {
+            $row['EDIT_URL'] = '/bitrix/admin/iblock_edit.php?ID=' . $row['ID'] . '&type=agrebnev_wikiinside&lang=' . LANGUAGE_ID . '&admin=Y';
+
             $this->data['IBLOCK'] = $row;
         }
 
@@ -115,6 +148,8 @@ class AgrebnevWikiInsideDataComponent extends \CBitrixComponent
             ],
         ]);
         while ($row = $iterator->fetch()) {
+            $row['EDIT_URL'] = '/bitrix/admin/iblock_section_edit.php?IBLOCK_ID=' . $this->iblockId . '&type=agrebnev_wikiinside&lang=' . LANGUAGE_ID . '&ID=' . $row['ID'];
+
             $this->data['SECTIONS'][] = $row;
         }
 
@@ -161,6 +196,7 @@ class AgrebnevWikiInsideDataComponent extends \CBitrixComponent
                 'PATHNAME' => '',
                 'SEARCH' => [],
             ];
+            $row['EDIT_URL'] = '/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=' . $this->iblockId . '&type=agrebnev_wikiinside&lang=' . LANGUAGE_ID . '&ID=' . $row['ID'];
 
             $property = $object->getLocationPathname();
             if ($property) {

@@ -1,5 +1,7 @@
 .b-agrebnev-wikiinside {
   height: calc(100% + 19px); }
+  .b-agrebnev-wikiinside:hover .b-agrebnev-wikiinside__header__right > a {
+    opacity: 1; }
   .b-agrebnev-wikiinside__header {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -28,6 +30,24 @@
       text-shadow: 0 1px white; }
       .b-agrebnev-wikiinside__header__title > span {
         color: rgba(47, 198, 246, 0.95); }
+    .b-agrebnev-wikiinside__header__right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      padding-right: 10px;
+      text-align: right; }
+      .b-agrebnev-wikiinside__header__right > a {
+        opacity: 0;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out; }
+        .b-agrebnev-wikiinside__header__right > a:hover {
+          text-decoration: underline; }
   .b-agrebnev-wikiinside__container {
     height: calc(100% - 50px);
     display: -webkit-box;
@@ -89,12 +109,34 @@
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
     max-width: calc(100% - 230px);
-    height: calc(100% - 19px); }
+    height: calc(100% - 19px);
+    position: relative; }
+    .b-agrebnev-wikiinside__content:hover .b-agrebnev-wikiinside__content__edit-article {
+      opacity: 1; }
+    .b-agrebnev-wikiinside__content__edit-article {
+      background-color: rgba(47, 198, 246, 0.95);
+      border-radius: 3px;
+      color: white;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      opacity: 0;
+      padding: 2px 5px;
+      position: absolute;
+      right: 2px;
+      text-decoration: none;
+      top: 2px;
+      -webkit-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out; }
+      .b-agrebnev-wikiinside__content__edit-article:hover {
+        background-color: rgba(38, 145, 186, 0.95);
+        text-decoration: none; }
     .b-agrebnev-wikiinside__content__body {
       background-color: white;
       height: calc(100%);
       min-height: 500px;
-      padding: 10px 15px; }
+      padding: 20px 15px 10px; }
     .b-agrebnev-wikiinside__content__title {
       font-size: 22px;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
@@ -105,6 +147,7 @@
       color: black;
       text-decoration: none; }
     .b-agrebnev-wikiinside__content__description {
+      overflow: hidden;
       padding-top: 25px; }
   .b-agrebnev-wikiinside__footer {
     -webkit-box-align: center;

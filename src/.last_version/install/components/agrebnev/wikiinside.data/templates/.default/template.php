@@ -24,22 +24,32 @@ $this->addExternalCss($templateFolder . '/dist/component.css');
 
 $blockId = 'agrebnev_wikiinside_data-' . Random::getString(5);
 
+// echo "\$_REQUEST =<br><textarea>";
+// print_r($_REQUEST);
+// echo "</textarea><br>";
+
 ?>
 
 <div id="<?= $blockId ?>" class="b-agrebnev-wikiinside">
     <?php
     if ('Y' === $arParams['IFRAME_REQUEST']): ?>
         <div class="b-agrebnev-wikiinside__header">
-            <div class="b-agrebnev-wikiinside__header__left"></div>
+            <div class="b-agrebnev-wikiinside__header__left"> &nbsp; &nbsp;</div>
             <div class="b-agrebnev-wikiinside__header__title">
                 <?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__TITLE') ?>
             </div>
             <div class="b-agrebnev-wikiinside__header__right">
                 <a
-                        href=""
+                        href="<?= $arResult['BASE_URL'] ?>"
                         target="_blank"
-                        title="<?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_TITLE') ?>"
-                ><?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD') ?></a>
+                        title="<?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__BASE_TITLE') ?>"
+                ><?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__BASE') ?></a>
+                <a
+                        class="js-agrebnev-wikiinside-addnew"
+                        href="<?= $arResult['ADD_URL'] ?>"
+                        target="_blank"
+                        title="<?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_HERE_TITLE') ?>"
+                ><?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_HERE') ?></a>
             </div>
         </div>
     <?php
@@ -134,6 +144,14 @@ $blockId = 'agrebnev_wikiinside_data-' . Random::getString(5);
     </ul>
 </script>
 <script id="<?= $blockId ?>-body-template" type="text/x-template">
+    {{#EDIT_URL}}
+    <a
+            class="b-agrebnev-wikiinside__content__edit-article "
+            href="{{{EDIT_URL}}}"
+            target="_blank"
+            title="<?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_BODY__EDIT_TITLE') ?>"
+    ><?= Loc::getMessage('AGREBNEV_WI_COMPONENT_TMPL_BODY__EDIT') ?></a>
+    {{/EDIT_URL}}
     <div class="b-agrebnev-wikiinside__content__body">
         <div class="b-agrebnev-wikiinside__content__title">{{#TITLE}}{{{TITLE}}}{{/TITLE}}</div>
         <div class="b-agrebnev-wikiinside__content__elements-wrap">

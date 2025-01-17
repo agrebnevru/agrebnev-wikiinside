@@ -16,7 +16,6 @@ export class Icon {
 
         let $headerRightBlock = document.querySelector('.adm-header-right-block')
         if (!$headerRightBlock) {
-            console.warn('Cant find header right block')
             return
         }
 

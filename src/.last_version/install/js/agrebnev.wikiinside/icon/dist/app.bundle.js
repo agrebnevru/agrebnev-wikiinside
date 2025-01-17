@@ -19,7 +19,6 @@
           var html = "<span class=\"adm-header-help-btn\" id=\"bx_top_panel_agrebnev_wikiinside_header_btn\" style=\"padding-left:0;\">\n\t\t   <span class=\"adm-header-help-btn-text\"><span style=\"color:#2fc6f6;\">Wiki</span>Inside</span>\n\t\t</span>";
           var $headerRightBlock = document.querySelector('.adm-header-right-block');
           if (!$headerRightBlock) {
-            console.warn('Cant find header right block');
             return;
           }
           $headerRightBlock.insertAdjacentHTML('beforeEnd', html);

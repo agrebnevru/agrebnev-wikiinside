@@ -1,4 +1,4 @@
-import Mustache from 'mustache';
+import Mustache from './mustache';
 
 import Base from './base';
 
@@ -18,6 +18,7 @@ export class Data extends Base {
         this.initDocument()
         this.addEventListeners()
         this.fillStartData()
+        this.fillAddUrl()
         this.render()
     }
 
@@ -49,15 +50,19 @@ export class Data extends Base {
         let entity = this.getSectionById(id)
 
         if (!entity) {
-            this.fillStartData()
+            this.fillIblockData()
+            this.fillAddUrl()
             return
         }
 
         this.result.JS_DATA.CURRENT_DATA.ID = entity.ID
         this.result.JS_DATA.CURRENT_DATA.TITLE = entity.NAME
         this.result.JS_DATA.CURRENT_DATA.DESCRIPTION = entity.DESCRIPTION
+        this.result.JS_DATA.CURRENT_DATA.EDIT_URL = entity.EDIT_URL
 
         this.activeNavigationId = entity.ID
+
+        this.fillAddUrl()
     }
 
     showElementById(id) {
@@ -70,26 +75,48 @@ export class Data extends Base {
         this.result.JS_DATA.CURRENT_DATA.ID = entity.ID
         this.result.JS_DATA.CURRENT_DATA.TITLE = entity.NAME
         this.result.JS_DATA.CURRENT_DATA.DESCRIPTION = entity.DETAIL_TEXT
+        this.result.JS_DATA.CURRENT_DATA.EDIT_URL = entity.EDIT_URL
 
         this.activeNavigationId = entity.IBLOCK_SECTION_ID
+
+        this.fillAddUrl()
     }
 
-    fillStartData() {
+    fillIblockData() {
         this.result.JS_DATA.CURRENT_DATA = {
             ID: null,
             TITLE: this.result.JS_DATA.IBLOCK.NAME,
             DESCRIPTION: this.result.JS_DATA.IBLOCK.DESCRIPTION,
+            EDIT_URL: this.result.JS_DATA.IBLOCK.EDIT_URL,
         }
         this.activeNavigationId = 0
+
+        this.fillAddUrl()
+    }
+
+    fillStartData() {
+        this.fillIblockData()
 
         let currentData = this.getCurrentDataByUrl()
         if (null !== currentData) {
             this.result.JS_DATA.CURRENT_DATA.ID = currentData.ID
             this.result.JS_DATA.CURRENT_DATA.TITLE = currentData.NAME
             this.result.JS_DATA.CURRENT_DATA.DESCRIPTION = currentData.DETAIL_TEXT
+            this.result.JS_DATA.CURRENT_DATA.EDIT_URL = currentData.EDIT_URL
 
             this.activeNavigationId = currentData.IBLOCK_SECTION_ID
+
+            this.fillAddUrl()
         }
+    }
+
+    fillAddUrl() {
+        let $link = this.$component.querySelector('.js-agrebnev-wikiinside-addnew')
+        if (!$link.dataset.startAddNewLink) {
+            $link.dataset.startAddNewLink = $link.getAttribute('href')
+        }
+
+        $link.setAttribute('href', `${$link.dataset.startAddNewLink}&IBLOCK_SECTION_ID=${this.activeNavigationId}`)
     }
 
     getCurrentDataByUrl() {
@@ -178,7 +205,15 @@ export class Data extends Base {
 
     renderBody() {
         let blockId = `${this.id}-body`,
-            data = Object.assign({}, {HAS_ELEMENTS: false, ELEMENTS: []}, this.result.JS_DATA.CURRENT_DATA)
+            data = Object.assign(
+                {},
+                {
+                    EDIT_URL: '',
+                    HAS_ELEMENTS: false,
+                    ELEMENTS: [],
+                },
+                this.result.JS_DATA.CURRENT_DATA
+            )
 
         data.ELEMENTS = this.result.JS_DATA.ITEMS.filter(item => {
             return Number.parseInt(this.activeNavigationId) === Number.parseInt(item.IBLOCK_SECTION_ID)

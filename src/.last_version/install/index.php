@@ -73,7 +73,19 @@ class agrebnev_wikiinside extends CModule
     {
         CopyDirFiles(
             \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/modules/agrebnev.wikiinside/install/components',
-            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/components'
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/components',
+            true,
+            true
+        );
+        CopyDirFiles(
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/modules/agrebnev.wikiinside/install/admin',
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/admin'
+        );
+        CopyDirFiles(
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/modules/agrebnev.wikiinside/install/js',
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/js',
+            true,
+            true
         );
     }
 
@@ -82,6 +94,14 @@ class agrebnev_wikiinside extends CModule
         DeleteDirFiles(
             \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/modules/agrebnev.wikiinside/install/components/',
             \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/components'
+        );
+        DeleteDirFiles(
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/modules/agrebnev.wikiinside/install/admin/',
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/admin'
+        );
+        DeleteDirFiles(
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/modules/agrebnev.wikiinside/install/js/',
+            \Bitrix\Main\Application::getDocumentRoot() . '/bitrix/js'
         );
     }
 
@@ -205,16 +225,19 @@ class agrebnev_wikiinside extends CModule
 
             $properties = [
                 [
-                    'NAME' => 'Location[pathname]',
+                    'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_PATHNAME'),
+                    'HINT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_PATHNAME__HINT'),
                     'ACTIVE' => 'Y',
                     'SORT' => 100,
                     'CODE' => 'LOCATION_PATHNAME',
                     'PROPERTY_TYPE' => 'S',
                     'IBLOCK_ID' => $iblockId,
                     'WITH_DESCRIPTION' => 'N',
+                    'MULTIPLE' => 'N',
                 ],
                 [
-                    'NAME' => 'Location[search]',
+                    'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_SEARCH'),
+                    'HINT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__IBLOCK__PROPERTY_LOCATION_SEARCH__HINT'),
                     'ACTIVE' => 'Y',
                     'SORT' => 100,
                     'CODE' => 'LOCATION_SEARCH',
@@ -222,6 +245,7 @@ class agrebnev_wikiinside extends CModule
                     'IBLOCK_ID' => $iblockId,
                     'WITH_DESCRIPTION' => 'Y',
                     'MULTIPLE' => 'Y',
+                    'MULTIPLE_CNT' => 15,
                 ],
             ];
 
@@ -321,29 +345,28 @@ class agrebnev_wikiinside extends CModule
                 'DETAIL_TEXT' => '',
             ];
 
-            $elementWikiInside = [
-                'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_1__NAME'),
-                'CODE' => 'element-wikiinside-settings',
+            $elementWikiInsideAdd = [
+                'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_ADD__NAME'),
+                'CODE' => 'element-wikiinside-add',
                 'IBLOCK_SECTION_ID' => 'wi-section',
                 'SORT' => 100,
-                'DETAIL_TEXT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_1__DETAIL_TEXT'),
-                'PROPERTY_VALUES' => [
-                    $propIdByCode['LOCATION_PATHNAME'] => '/bitrix/admin/settings.php',
-                    $propIdByCode['LOCATION_SEARCH'] => [
-                        'n0' => [
-                            'VALUE' => 'mid',
-                            'DESCRIPTION' => $this->MODULE_ID,
-                        ],
-                    ],
-                ],
+                'DETAIL_TEXT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_ADD__DETAIL_TEXT'),
             ];
 
-            $elementWikiInside2 = [
-                'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_2__NAME'),
-                'CODE' => 'element-wikiinside-settings-2',
+            $elementWikiInsideEdit = [
+                'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_EDIT__NAME'),
+                'CODE' => 'element-wikiinside-edit',
+                'IBLOCK_SECTION_ID' => 'wi-section',
+                'SORT' => 100,
+                'DETAIL_TEXT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_EDIT__DETAIL_TEXT'),
+            ];
+
+            $elementWikiInsideSettings = [
+                'NAME' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_SETTINGS__NAME'),
+                'CODE' => 'element-wikiinside-settings',
                 'IBLOCK_SECTION_ID' => 'wi-section',
                 'SORT' => 200,
-                'DETAIL_TEXT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT_2__DETAIL_TEXT'),
+                'DETAIL_TEXT' => Loc::getMessage('AGREBNEV_WI_INSTALL_DEMODATA__ELEMENT__WI_SETTINGS__DETAIL_TEXT'),
                 'PROPERTY_VALUES' => [
                     $propIdByCode['LOCATION_PATHNAME'] => '/bitrix/admin/settings.php',
                     $propIdByCode['LOCATION_SEARCH'] => [
@@ -404,8 +427,9 @@ class agrebnev_wikiinside extends CModule
             ];
 
             $elements = [
-                $elementWikiInside,
-                $elementWikiInside2,
+                $elementWikiInsideAdd,
+                $elementWikiInsideEdit,
+                $elementWikiInsideSettings,
                 $elementMainSettings,
                 $elementIblockSettings1,
                 $elementIblockSettings2,

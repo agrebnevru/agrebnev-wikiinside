@@ -1,8 +1,15 @@
 <?php
 
 $MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__TITLE'] = '<span>Wiki</span>Inside';
-$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD'] = 'Добавить';
-$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_TITLE'] = 'Добавить статью для этой страницы';
+
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__BASE'] = 'Все статьи';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__BASE_TITLE'] = 'Открыть базу статей';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_HERE'] = 'Добавить';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_HERE_TITLE'] = 'Добавить статью для этой страницы';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_HERE'] = 'Добавить';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_HEADER__ADD_HERE_TITLE'] = 'Добавить статью для этой страницы';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_BODY__EDIT'] = 'Редактировать';
+$MESS['AGREBNEV_WI_COMPONENT_TMPL_BODY__EDIT_TITLE'] = 'Редактировать данную статью';
 
 $MESS['AGREBNEV_WI_COMPONENT_TMPL_BODY__REFRESH_PAGE'] = 'Обновите страницу';
 
